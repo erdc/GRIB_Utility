@@ -1,0 +1,38 @@
+# Path to executables for wgrib and grid_interpolator
+wgrib_exe:/Users/corey/Dropbox/SCIENCE/aa_repo_github/ERDC/ERA5_utility/wgrib
+interpolator:/Users/corey/Dropbox/SCIENCE/aa_repo_github/ERDC/ERA5_utility/a.out
+
+# Set file paths
+grib_file:short_texas_data
+adh_root:angle_wind
+
+# Set latitude/longitude values of ERA5 data
+# If unsure use wgrib_exe -V -d 1 <grib_file> to get
+# info about the first grib record.
+# This utility assumes that all records in the file have
+# the same spatial grid.
+lat1:40
+lat2:20
+lon1:-110
+lon2:-90
+ni  :101
+nj  :101
+
+# Set the reference time for AdH
+# Ref time is in YYYY-MM-DD-HH
+# We assume date is pre-2050 here!!!
+reference_time:2018-01-01-2
+
+# Reference lat/lon in degrees for AdH
+reference_lat:30
+reference_lon:-100
+
+# Output format (binary=1 or text=0)
+# Currently only text format is supported
+binary_format:0
+
+# String for selecting the variables to extract from the GRIB file
+# Note that currently, the utility can only handle the wind velocities
+# Also note that this is being fed into grep,
+# it must be enclosed in single quotes: '...'
+variables_string:':10U:|:10V:'
